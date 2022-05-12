@@ -205,8 +205,10 @@ module ZendeskAPI
     has Category
 
     class Vote < Resource; end
+    class Translation < Resource; end
     class Article < Resource
       has_many Vote
+      has_many Translation
     end
 
     has_many Article
@@ -221,6 +223,8 @@ module ZendeskAPI
 
     class Vote < Resource; end
     has_many Vote
+    class Translation < Resource; end
+    has_many Translation
   end
 
   class TopicSubscription < Resource
