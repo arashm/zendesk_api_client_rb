@@ -6,9 +6,9 @@ RSpec.describe ZendeskAPI::Article, :delete_after do
   end
 
   it "can have translations", :vcr do
-    article.translations.create!(locale: "fr", title: "Traduction", body: "Bonjour")
+    article.translations.create(locale: "fr", title: "Traduction", body: "Bonjour")
 
-    expect(article.translations.any?).to be_truthy
+    expect(article.translations.map(&:locale)).to include("fr")
   end
 
   describe "creating articles within a section" do
